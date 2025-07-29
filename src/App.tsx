@@ -10,11 +10,12 @@ function App() {
       <main className="w-full h-screen flex flex-col items-center gap-4 pt-15 mb-50">
         <Banner />
         <Skills />
+        <div className="py-50 bg-white w-full"/>
         This is the main content area.
       </main>
-      <footer className="bg-primary text-white p-4 text-center">
+      {/* <footer className="bg-primary text-white p-4 text-center">
         © 2023 My Application
-      </footer>
+      </footer> */}
     </div>
   )
 }
