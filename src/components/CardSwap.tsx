@@ -41,7 +41,7 @@ import React, {
   );
   Card.displayName = "Card";
   
-  type CardRef = RefObject<HTMLDivElement>;
+  type CardRef = RefObject<HTMLDivElement | null>;
   interface Slot {
     x: number;
     y: number;
@@ -86,6 +86,23 @@ import React, {
     easing = "linear",
     children,
   }) => {
+    const [windowSize, setWindowSize] = React.useState({
+      width: typeof window !== 'undefined' ? window.innerWidth : 1024,
+      height: typeof window !== 'undefined' ? window.innerHeight : 768
+    });
+
+    // Responsive dimensions
+    const responsiveWidth = typeof width === 'number' 
+      ? Math.min(width, windowSize.width < 768 ? 300 : windowSize.width < 1024 ? 400 : width)
+      : width;
+    const responsiveHeight = typeof height === 'number'
+      ? Math.min(height, windowSize.width < 768 ? 250 : windowSize.width < 1024 ? 320 : height)
+      : height;
+    
+    // Responsive distances
+    const responsiveCardDistance = windowSize.width < 768 ? 30 : windowSize.width < 1024 ? 45 : cardDistance;
+    const responsiveVerticalDistance = windowSize.width < 768 ? 35 : windowSize.width < 1024 ? 50 : verticalDistance;
+    const responsiveSkewAmount = windowSize.width < 768 ? 3 : windowSize.width < 1024 ? 4 : skewAmount;
     const config =
       easing === "elastic"
         ? {
@@ -127,8 +144,8 @@ import React, {
       refs.forEach((r, i) =>
         placeNow(
           r.current!,
-          makeSlot(i, cardDistance, verticalDistance, total),
-          skewAmount
+          makeSlot(i, responsiveCardDistance, responsiveVerticalDistance, total),
+          responsiveSkewAmount
         )
       );
   
@@ -147,9 +164,9 @@ import React, {
         });
   
         tl.addLabel("promote", `-=${config.durDrop * config.promoteOverlap}`);
-        rest.forEach((idx, i) => {
+                rest.forEach((idx, i) => {
           const el = refs[idx].current!;
-          const slot = makeSlot(i, cardDistance, verticalDistance, refs.length);
+          const slot = makeSlot(i, responsiveCardDistance, responsiveVerticalDistance, refs.length);
           tl.set(el, { zIndex: slot.zIndex }, "promote");
           tl.to(
             el,
@@ -163,11 +180,11 @@ import React, {
             `promote+=${i * 0.15}`
           );
         });
-  
+
         const backSlot = makeSlot(
           refs.length - 1,
-          cardDistance,
-          verticalDistance,
+          responsiveCardDistance,
+          responsiveVerticalDistance,
           refs.length
         );
         tl.addLabel("return", `promote+=${config.durMove * config.returnDelay}`);
@@ -216,14 +233,27 @@ import React, {
         };
       }
       return () => clearInterval(intervalRef.current);
-    }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
+    }, [responsiveCardDistance, responsiveVerticalDistance, delay, pauseOnHover, responsiveSkewAmount, easing]);
+
+    // Handle window resize
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+      };
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
   
     const rendered = childArr.map((child, i) =>
       isValidElement<CardProps>(child)
         ? cloneElement(child, {
             key: i,
             ref: refs[i],
-            style: { width, height, ...(child.props.style ?? {}) },
+            style: { width: responsiveWidth, height: responsiveHeight, ...(child.props.style ?? {}) },
             onClick: (e) => {
               child.props.onClick?.(e as React.MouseEvent<HTMLDivElement>);
               onCardClick?.(i);
@@ -235,8 +265,8 @@ import React, {
     return (
       <div
         ref={container}
-        className="transform translate-x-[5%] translate-y-[20%] origin-bottom-right perspective-[900px] overflow-visible max-[768px]:translate-x-[25%] max-[768px]:translate-y-[25%] max-[768px]:scale-[0.75] max-[480px]:translate-x-[25%] max-[480px]:translate-y-[25%] max-[480px]:scale-[0.55]"
-        style={{ width, height }}
+        className="transform translate-x-[5%] translate-y-[20%] origin-top-left md:origin-bottom-right perspective-[900px] overflow-visible max-[768px]:translate-x-[15%] max-[768px]:translate-y-[15%] max-[768px]:scale-[0.85] max-[480px]:translate-x-[10%] max-[480px]:translate-y-[10%] max-[480px]:scale-[0.7]"
+        style={{ width: responsiveWidth, height: responsiveHeight }}
       >
         {rendered}
       </div>

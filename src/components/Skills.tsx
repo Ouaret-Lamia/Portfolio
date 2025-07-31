@@ -1,92 +1,40 @@
+import { SKILLS } from "@/config";
 import CardSwap, { Card } from "./CardSwap";
 import Progress from "./ui/Progress";
-
-// To do: Make it responsive
-interface SkillsProps {
-  title: string;
-  tools: {
-    name: string;
-    icon: string;
-    percentage: number;
-  }[];
-}
-
-const skills: SkillsProps[] = [
-  {
-    title: "Fronted Developement",
-    tools: [
-      {
-        name: "React",
-        icon: "/icons/react-logo.svg",
-        percentage: 96,
-      },
-      {
-        name: "JavaScript",
-        icon: "/icons/js-logo.svg",
-        percentage: 90,
-      },
-      {
-        name: "TypeScript",
-        icon: "/icons/ts-logo.svg",
-        percentage: 93,
-      },
-      {
-        name: "TailwindCSS",
-        icon: "/icons/tailwind-logo.svg",
-        percentage: 93,
-      },
-    ],
-  },
-  {
-    title: "UI/UX Design",
-    tools: [
-      {
-        name: "Figma",
-        icon: "/icons/figma-logo.svg",
-        percentage: 85,
-      },
-      {
-        name: "Adobe XD",
-        icon: "/icons/xd-logo.svg",
-        percentage: 80,
-      },
-    ],
-  },
-  {
-    title: "Other Tools",
-    tools: [
-      {
-        name: "Wordpress",
-        icon: "/icons/wordpress-logo.svg",
-        percentage: 93,
-      },
-      {
-        name: "Git/GitHub",
-        icon: "/icons/git-logo.svg",
-        percentage: 85,
-      },
-      {
-        name: "Postman",
-        icon: "/icons/postman-logo.svg",
-        percentage: 80,
-      },
-    ],
-  },
-];
+import { useState, useEffect } from "react";
 
 const Skills = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 1024,
+    height: typeof window !== 'undefined' ? window.innerHeight : 768
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = windowSize.width < 768;
+  const isTablet = windowSize.width < 1024;
   return (
-    <div className="w-full flex flex-col items-center gap-5 pt-5 md:pt-10 ">
+    <div className="w-full flex flex-col items-center gap-6 md:gap-8 pt-5 md:pt-10 px-4 md:px-6 lg:px-8">
       <div className="text-center">
-        <h1 className="text-3xl md:text-5xl font-bold text-primary mb-2">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
           Skills
         </h1>
-        <div className="h-1 w-15 md:w-24 mx-auto bg-gradient-to-r from-secondary via-primary to-secondary" />
+        <div className="h-1 w-12 md:w-16 lg:w-24 mx-auto bg-gradient-to-r from-secondary via-primary to-secondary" />
       </div>
 
       {/* Skills : Frontend developement (React, typescript, javascript, tailwindcss), UI/UX Design (figma, adobe XD), Other tools (Postman, Git/GitHub, wordpress)*/}
-      <div className="w-full grid md:grid-cols-2">
-        <div className="w-full text-primary text-justify px-10 md:text-lg md:p-15 ">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="w-full text-primary text-justify px-6 md:px-10 lg:px-15 text-sm md:text-base lg:text-lg">
           I've spent the past few years learning and perfecting my skills in
           frontend development, specializing in React, TypeScript, JavaScript,
           and Tailwind CSS to build fast, responsive, and user-friendly
@@ -99,29 +47,32 @@ const Skills = () => {
           experiences.
         </div>
 
-        <div className="-z-10">
+        <div className="-z-10 flex justify-center items-center order-1 lg:order-2">
           <CardSwap
-            cardDistance={60}
-            verticalDistance={70}
+            width={isMobile ? 280 : isTablet ? 380 : 500}
+            height={isMobile ? 220 : isTablet ? 300 : 400}
+            cardDistance={isMobile ? 30 : isTablet ? 45 : 60}
+            verticalDistance={isMobile ? 35 : isTablet ? 50 : 70}
             delay={5000}
-            pauseOnHover={false}
+            pauseOnHover={true}
+            skewAmount={isMobile ? 3 : isTablet ? 4 : 6}
           >
-            {skills.map((skill) => (
+            {SKILLS.map((skill) => (
               <Card className="flex flex-col gap-2">
-                <h4 className="font-semibold text-center">{skill.title}</h4>
+                <h4 className="font-semibold text-center text-sm md:text-base">{skill.title}</h4>
                 <div className="w-full h-[.1px] bg-primary" />
-                <div className="grid grid-cols-2 gap-5 p-5">
+                <div className="grid grid-cols-2 gap-2 md:gap-5 p-3 md:p-5">
                   {skill.tools.map((tool) => (
-                    <div className="p-2">
-                      <div className="flex flex-col items-center gap-1 pb-2">
+                    <div className="p-1 md:p-2">
+                      <div className="flex flex-col items-center gap-1 pb-1 md:pb-2">
                         <img
                           src={tool.icon}
                           alt={tool.name}
-                          className="w-8 h-8"
+                          className="w-6 h-6 md:w-8 md:h-8"
                         />
-                        <span className="text-sm">{tool.name}</span>
+                        <span className="text-xs md:text-sm text-center">{tool.name}</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2 md:gap-3">
                         <span className="text-xs text-muted-foreground">
                           {tool.percentage}%
                         </span>
