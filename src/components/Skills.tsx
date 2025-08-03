@@ -5,26 +5,30 @@ import { useState, useEffect } from "react";
 
 const Skills = () => {
   const [windowSize, setWindowSize] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 1024,
-    height: typeof window !== 'undefined' ? window.innerHeight : 768
+    width: typeof window !== "undefined" ? window.innerWidth : 1024,
+    height: typeof window !== "undefined" ? window.innerHeight : 768,
   });
 
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
       });
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const isMobile = windowSize.width < 768;
   const isTablet = windowSize.width < 1024;
+
   return (
-    <div className="w-full flex flex-col items-center gap-6 md:gap-8 pt-5 md:pt-10 px-4 md:px-6 lg:px-8">
+    <div
+      id="skills"
+      className="bg-secondary/25 w-full flex flex-col items-center gap-6 md:gap-8 pt-5 md:pt-13 px-4 md:px-6 lg:px-8"
+    >
       <div className="text-center">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
           Skills
@@ -47,7 +51,7 @@ const Skills = () => {
           experiences.
         </div>
 
-        <div className="-z-10 flex justify-center items-center md:block order-1 lg:order-2">
+        <div className="-z-1 flex justify-center items-center md:block order-1 lg:order-2">
           <CardSwap
             width={isMobile ? 280 : isTablet ? 380 : 500}
             height={isMobile ? 220 : isTablet ? 300 : 400}
@@ -59,7 +63,9 @@ const Skills = () => {
           >
             {SKILLS.map((skill) => (
               <Card className="flex flex-col gap-2" key={skill.title}>
-                <h4 className="font-semibold text-center text-sm md:text-base">{skill.title}</h4>
+                <h4 className="font-semibold text-center text-sm md:text-base">
+                  {skill.title}
+                </h4>
                 <div className="w-full h-[.1px] bg-primary" />
                 <div className="grid grid-cols-2 gap-2 md:gap-5 p-3 md:p-5">
                   {skill.tools.map((tool) => (
@@ -70,7 +76,9 @@ const Skills = () => {
                           alt={tool.name}
                           className="w-6 h-6 md:w-8 md:h-8"
                         />
-                        <span className="text-xs md:text-sm text-center">{tool.name}</span>
+                        <span className="text-xs md:text-sm text-center">
+                          {tool.name}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 md:gap-3">
                         <span className="text-xs text-muted-foreground">

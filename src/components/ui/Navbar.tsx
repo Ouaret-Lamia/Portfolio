@@ -3,9 +3,9 @@ import { buttonVariants } from "./button";
 // To do: add actual hrefs
 const items = [
   { label: "About", href: "#" },
-  { label: "Skills", href: "#" },
-  { label: "Work", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
         {items.map((item, index) => (
           <a
             href={item.href}
-            className={buttonVariants({ variant: "ghost", className:"focus:bg-primary focus:text-white" })}
+            className={buttonVariants({ variant: "ghost", className:"active:bg-primary active:text-white"})}
             // className="px-4 py-2 rounded-lg hover:bg-secondary focus:bg-primary focus:text-secondary transition-colors"
             key={index}
           >

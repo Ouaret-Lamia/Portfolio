@@ -1,4 +1,6 @@
 import Banner from './components/Banner'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
@@ -8,16 +10,13 @@ function App() {
     <div className="App">
       <Header />
       {/* <main className="w-full h-screen flex flex-col justify-center items-center bg-gradient-to-b from-violet-200 through-violet-500 to-rose-200 "> */}
-      <main className="w-full h-screen flex flex-col items-center gap-4 pt-15 mb-50">
+      <main className="w-full h-screen flex flex-col items-center pt-15 mb-50">
         <Banner />
         <Skills />
         <Projects />
-        <div className="py-50 bg-white w-full"/>
-        This is the main content area.
+        <Contact />
       </main>
-      {/* <footer className="bg-primary text-white p-4 text-center">
-        © 2023 My Application
-      </footer> */}
+      <Footer />
     </div>
   )
 }
