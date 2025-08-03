@@ -1,5 +1,6 @@
 import Banner from './components/Banner'
 import Header from './components/Header'
+import Projects from './components/Projects'
 import Skills from './components/Skills'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <main className="w-full h-screen flex flex-col items-center gap-4 pt-15 mb-50">
         <Banner />
         <Skills />
+        <Projects />
         <div className="py-50 bg-white w-full"/>
         This is the main content area.
       </main>

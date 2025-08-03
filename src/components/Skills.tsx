@@ -33,8 +33,8 @@ const Skills = () => {
       </div>
 
       {/* Skills : Frontend developement (React, typescript, javascript, tailwindcss), UI/UX Design (figma, adobe XD), Other tools (Postman, Git/GitHub, wordpress)*/}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        <div className="w-full text-primary text-justify px-6 md:px-10 lg:px-15 text-sm md:text-base lg:text-lg">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-0">
+        <div className="w-full text-primary flex items-center text-justify px-6 md:px-10 lg:px-15 text-sm md:text-base lg:text-lg">
           I've spent the past few years learning and perfecting my skills in
           frontend development, specializing in React, TypeScript, JavaScript,
           and Tailwind CSS to build fast, responsive, and user-friendly
@@ -47,7 +47,7 @@ const Skills = () => {
           experiences.
         </div>
 
-        <div className="-z-10 flex justify-center items-center order-1 lg:order-2">
+        <div className="-z-10 flex justify-center items-center md:block order-1 lg:order-2">
           <CardSwap
             width={isMobile ? 280 : isTablet ? 380 : 500}
             height={isMobile ? 220 : isTablet ? 300 : 400}
@@ -58,7 +58,7 @@ const Skills = () => {
             skewAmount={isMobile ? 3 : isTablet ? 4 : 6}
           >
             {SKILLS.map((skill) => (
-              <Card className="flex flex-col gap-2">
+              <Card className="flex flex-col gap-2" key={skill.title}>
                 <h4 className="font-semibold text-center text-sm md:text-base">{skill.title}</h4>
                 <div className="w-full h-[.1px] bg-primary" />
                 <div className="grid grid-cols-2 gap-2 md:gap-5 p-3 md:p-5">
