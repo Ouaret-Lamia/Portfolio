@@ -1,3 +1,5 @@
+import { Github, Linkedin, Mail } from "lucide-react";
+
 interface SkillsProps {
   title: string;
   tools: {
@@ -17,6 +19,41 @@ interface ProjectProps {
   githubUrl?: string;
   featured?: boolean;
 }
+
+// To do: add actual hrefs
+export const LINKS = [
+  { label: "About", href: "#" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const CONTACTS = [
+  {
+    name: "Email",
+    url: "mailto:ouaretlamia04@gmail.com",
+    icon: (
+      <Mail />
+    ),
+    description: "Send me an email",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/lamia-ouaret-2178032a9",
+    icon: (
+      <Linkedin />
+    ),
+    description: "Connect with me on LinkedIn",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/Ouaret-Lamia",
+    icon: (
+      <Github />
+    ),
+    description: "Check out my projects on GitHub",
+  },
+];
 
 export const SKILLS: SkillsProps[] = [
   {

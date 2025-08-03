@@ -1,18 +1,11 @@
+import { LINKS } from "@/config";
 import { buttonVariants } from "./button";
-
-// To do: add actual hrefs
-const items = [
-  { label: "About", href: "#" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
 
 const Navbar = () => {
   return (
     <nav className="text-primary px-8 py-3">
       <ul className="flex gap-8">
-        {items.map((item, index) => (
+        {LINKS.map((item, index) => (
           <a
             href={item.href}
             className={buttonVariants({ variant: "ghost", className:"active:bg-primary active:text-white"})}

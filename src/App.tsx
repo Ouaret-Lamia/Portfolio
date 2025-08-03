@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       {/* <main className="w-full h-screen flex flex-col justify-center items-center bg-gradient-to-b from-violet-200 through-violet-500 to-rose-200 "> */}
-      <main className="w-full h-screen flex flex-col items-center pt-15 mb-50">
+      <main className="w-full flex flex-col items-center pt-15">
         <Banner />
         <Skills />
         <Projects />
