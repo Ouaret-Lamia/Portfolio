@@ -1,14 +1,12 @@
 import { CONTACTS } from "@/config";
 
 const Contact = () => {
-
   return (
     <div
       id="contact"
       className="w-full bg-secondary/25 flex flex-col items-center gap-7 py-15 px-10 md:px-6 lg:px-8"
     >
       <div className="max-w-4xl w-full">
-        
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
             Contact Me
@@ -31,7 +29,6 @@ const Contact = () => {
               className="group relative bg-card border border-border rounded-lg p-6 md:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary/50"
             >
               <div className="flex flex-col items-center text-center space-y-4">
-
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary/10 to-secondary/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <div className="text-primary group-hover:text-primary/80 transition-colors duration-300">
                     {link.icon}

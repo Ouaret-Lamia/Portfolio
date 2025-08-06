@@ -54,23 +54,22 @@ const About = () => {
         </div>
 
         {/* Right Side - Content */}
-            <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg text-justify">
-              <p>
-                I'm a second-year Master's student at the University of Ferhat
-                Abbas Sétif, specializing in <b>Data Science and Web Technologies</b>.
-                With a strong passion for front-end development, I love creating
-                clean, responsive, and intuitive user interfaces that balance
-                aesthetics with functionality.
-              </p>
-              <p>
-                During my internship at <b>Logika Box</b>, I had the chance to work on
-                real-world projects that sharpened my skills and deepened my
-                understanding of modern web development. I'm always driven to
-                learn, grow, and take on exciting new challenges.
-              </p>
-            </div>
-          </div>
-          
+        <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg text-justify">
+          <p>
+            I'm a second-year Master's student at the University of Ferhat Abbas
+            Sétif, specializing in <b>Data Science and Web Technologies</b>.
+            With a strong passion for front-end development, I love creating
+            clean, responsive, and intuitive user interfaces that balance
+            aesthetics with functionality.
+          </p>
+          <p>
+            During my internship at <b>Logika Box</b>, I had the chance to work
+            on real-world projects that sharpened my skills and deepened my
+            understanding of modern web development. I'm always driven to learn,
+            grow, and take on exciting new challenges.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

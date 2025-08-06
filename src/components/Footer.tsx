@@ -1,5 +1,5 @@
 import { LINKS } from "@/config";
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
@@ -23,7 +23,6 @@ const Footer = () => {
   return (
     <div className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-10 pt-12 md:pt-16">
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2">
             <div className="mb-6">
@@ -36,7 +35,6 @@ const Footer = () => {
                 modern technologies.
               </p>
             </div>
-
 
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (

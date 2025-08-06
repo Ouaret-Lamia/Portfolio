@@ -1,7 +1,7 @@
 import { SKILLS } from "@/config";
+import { useEffect, useState } from "react";
 import CardSwap, { Card } from "./CardSwap";
 import Progress from "./ui/Progress";
-import { useState, useEffect } from "react";
 
 const Skills = () => {
   const [windowSize, setWindowSize] = useState({

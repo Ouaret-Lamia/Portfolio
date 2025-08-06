@@ -1,7 +1,7 @@
 import { Github, SquareArrowOutUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import { PROJECTS } from "../config";
 import { cn } from "../lib/utils";
-import { useEffect, useRef, useState } from "react";
 import { buttonVariants } from "./ui/button";
 
 // Component for fade in/fade out carousel
