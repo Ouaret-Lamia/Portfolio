@@ -27,7 +27,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="bg-secondary/25 w-full flex flex-col items-center gap-6 md:gap-8 pt-5 md:pt-13 px-4 md:px-6 lg:px-8"
+      className="bg-secondary/25 w-full flex flex-col items-center gap-6 md:gap-8 pt-15 px-4 md:px-6 lg:px-8"
     >
       <div className="text-center">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
@@ -38,7 +38,7 @@ const Skills = () => {
 
       {/* Skills : Frontend developement (React, typescript, javascript, tailwindcss), UI/UX Design (figma, adobe XD), Other tools (Postman, Git/GitHub, wordpress)*/}
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-0">
-        <div className="w-full text-primary flex items-center text-justify px-6 md:px-10 lg:px-15 text-sm md:text-base lg:text-lg">
+        <div className="w-full text-primary flex items-center text-justify leading-relaxed px-6 md:px-10 lg:px-15 text-sm md:text-base lg:text-lg">
           I've spent the past few years learning and perfecting my skills in
           frontend development, specializing in React, TypeScript, JavaScript,
           and Tailwind CSS to build fast, responsive, and user-friendly

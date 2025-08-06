@@ -55,7 +55,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="w-full bg-white flex flex-col items-center gap-7 pt-8 md:pt-13 md:px-6 lg:px-8 pb-16"
+      className="w-full bg-white flex flex-col items-center gap-7 pt-14 md:px-6 lg:px-8 pb-16"
     >
       <div className="text-center max-w-4xl">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">

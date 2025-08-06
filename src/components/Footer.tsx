@@ -23,9 +23,8 @@ const Footer = () => {
   return (
     <div className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-10 pt-12 md:pt-16">
-        {/* Main Footer Content */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-4">
@@ -38,7 +37,7 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Social Links */}
+
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
                 <a
@@ -91,7 +90,7 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-primary-foreground/20 py-2 flex justify-center items-center text-sm text-primary-foreground/50 md:space-y-0">
-          <div className="">© 2025 Lamia Ouaret. All rights reserved.</div>
+          © 2025 Lamia Ouaret. All rights reserved.
         </div>
       </div>
     </div>
