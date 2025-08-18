@@ -181,5 +181,24 @@ export const PROJECTS: ProjectProps[] = [
     liveUrl: "https://messaging-app-next-js.vercel.app",
     githubUrl: "https://github.com/Ouaret-Lamia/Messaging-app-next.js.git",
     // featured: true,
+  },
+  {
+    id: 5,
+    title: "Coffee Srand",
+    description:
+      "A responsive animated coffee website with smooth scrolling effects, dynamic hero section, interactive menus, and GSAP-powered transitions that bring the coffee journey to life",
+    images: [
+      "/Coffee-brand/hero.png",
+      "/Coffee-brand/hero2.png",
+      "/Coffee-brand/about.png",
+      "/Coffee-brand/art.png",
+      "/Coffee-brand/art2.png",
+      "/Coffee-brand/menu.png",
+      "/Coffee-brand/contact.png",
+    ],
+    technologies: ["ReactJs", "TailwindCSS", "JavaScript", "GSAP"],
+    liveUrl: "https://soft-muse.vercel.app",
+    githubUrl: "https://github.com/Ouaret-Lamia/Drink3D.git",
+    // featured: true,
   }
 ];
