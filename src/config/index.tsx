@@ -184,7 +184,7 @@ export const PROJECTS: ProjectProps[] = [
   },
   {
     id: 5,
-    title: "Coffee Srand",
+    title: "Coffee Brand",
     description:
       "A responsive animated coffee website with smooth scrolling effects, dynamic hero section, interactive menus, and GSAP-powered transitions that bring the coffee journey to life",
     images: [
