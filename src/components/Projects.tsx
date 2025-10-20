@@ -52,6 +52,12 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
 };
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState<"all" | "web-dev" | "w3d">("all");
+
+  const filteredProjects = activeCategory === "all" 
+    ? PROJECTS 
+    : PROJECTS.filter(project => project.category === activeCategory);
+
   return (
     <div
       id="projects"
@@ -64,9 +70,46 @@ const Projects = () => {
         <div className="h-1 w-12 md:w-16 lg:w-24 mx-auto bg-gradient-to-r from-secondary via-primary to-secondary mb-6" />
       </div>
 
+      {/* Navigation Tabs */}
+      <div className="flex gap-3 md:gap-4 mb-4">
+        <button
+          onClick={() => setActiveCategory("all")}
+          className={cn(
+            "px-4 md:px-6 py-2 rounded-full font-medium text-sm md:text-base transition-all duration-300 cursor-pointer",
+            activeCategory === "all"
+              ? "bg-primary text-white shadow-lg"
+              : "bg-secondary text-primary hover:bg-secondary/50"
+          )}
+        >
+          All
+        </button>
+        <button
+          onClick={() => setActiveCategory("web-dev")}
+          className={cn(
+            "px-4 md:px-6 py-2 rounded-full font-medium text-sm md:text-base transition-all duration-300 cursor-pointer",
+            activeCategory === "web-dev"
+              ? "bg-primary text-white shadow-lg"
+              : "bg-secondary text-primary hover:bg-secondary/50"
+          )}
+        >
+          Web Dev
+        </button>
+        <button
+          onClick={() => setActiveCategory("w3d")}
+          className={cn(
+            "px-4 md:px-6 py-2 rounded-full font-medium text-sm md:text-base transition-all duration-300 cursor-pointer",
+            activeCategory === "w3d"
+              ? "bg-primary text-white shadow-lg"
+              : "bg-secondary text-primary hover:bg-secondary/50"
+          )}
+        >
+          W3D
+        </button>
+      </div>
+
       <div className="w-full max-w-7xl px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {PROJECTS.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20"

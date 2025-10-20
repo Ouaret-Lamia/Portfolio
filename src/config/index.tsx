@@ -18,6 +18,7 @@ interface ProjectProps {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+  category: "web-dev" | "w3d";
 }
 
 // To do: add actual hrefs
@@ -132,6 +133,7 @@ export const PROJECTS: ProjectProps[] = [
     ],
     technologies: ["React", "TailwindCSS", "JavaScript", "elstar"],
     githubUrl: "https://github.com/BenyahiaImad/Gestion-des-Location-des-Costume/tree/Frontend-New",
+    category: "web-dev",
   },
   {
     id: 2,
@@ -148,6 +150,7 @@ export const PROJECTS: ProjectProps[] = [
     ],
     technologies: ["WordPress", "Elementor", "OceanWP"],
     liveUrl: "https://3pindustrie.com",
+    category: "web-dev",
   },
   {
     id: 3,
@@ -164,6 +167,7 @@ export const PROJECTS: ProjectProps[] = [
     ],
     technologies: ["React", "JavaScript", "TailwindCSS"],
     githubUrl: "https://github.com/NMA19/Booking_app.git",
+    category: "web-dev",
   },
   {
     id: 4,
@@ -180,6 +184,7 @@ export const PROJECTS: ProjectProps[] = [
     technologies: ["NextJs", "TailwindCSS", "TypeScript", "Redis", "Pusher", "Upstash"],
     liveUrl: "https://messaging-app-next-js.vercel.app",
     githubUrl: "https://github.com/Ouaret-Lamia/Messaging-app-next.js.git",
+    category: "web-dev",
     // featured: true,
   },
   {
@@ -199,6 +204,7 @@ export const PROJECTS: ProjectProps[] = [
     technologies: ["ReactJs", "TailwindCSS", "JavaScript", "GSAP"],
     liveUrl: "https://soft-muse.vercel.app",
     githubUrl: "https://github.com/Ouaret-Lamia/Drink3D.git",
+    category: "web-dev",
     // featured: true,
   }
 ];
