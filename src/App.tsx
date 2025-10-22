@@ -1,25 +1,13 @@
-import About from './components/About'
-import Banner from './components/Banner'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Projects from './components/Projects'
-import Skills from './components/Skills'
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.tsx"
+import Model3D from "./pages/Model3D.tsx"
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      {/* <main className="w-full h-screen flex flex-col justify-center items-center bg-gradient-to-b from-violet-200 through-violet-500 to-rose-200 "> */}
-      <main className="w-full flex flex-col items-center pt-15">
-        <Banner />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/model" element={<Model3D />} />
+    </Routes>
   )
 }
 

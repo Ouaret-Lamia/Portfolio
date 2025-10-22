@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { PROJECTS } from "../config";
 import { cn } from "../lib/utils";
 import { buttonVariants } from "./ui/button";
+import ModelViewer from "./ModelViewer";
 
 // Component for fade in/fade out carousel
 const ImageCarousel = ({ images }: { images: string[] }) => {
@@ -109,12 +110,24 @@ const Projects = () => {
 
       <div className="w-full max-w-7xl px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project) => {
+            const isGlbFile = project.images[0]?.endsWith('.glb');
+            
+            return (
             <div
               key={project.id}
               className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20"
             >
-              <ImageCarousel images={project.images} />
+              {isGlbFile && project.category === "w3d" ? (
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+                  <ModelViewer 
+                    src={project.images[0]} 
+                    alt={project.title}
+                  />
+                </div>
+              ) : (
+                <ImageCarousel images={project.images} />
+              )}
 
               <div className="p-6 flex flex-col justify-between">
                 <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors duration-200">
@@ -161,7 +174,8 @@ const Projects = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

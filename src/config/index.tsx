@@ -206,5 +206,18 @@ export const PROJECTS: ProjectProps[] = [
     githubUrl: "https://github.com/Ouaret-Lamia/Drink3D.git",
     category: "web-dev",
     // featured: true,
+  },
+  {
+    id: 6,
+    title: "Table and chair 3D",
+    description:
+      "A 3D model of a table and 2 chairs created using blender",
+    images: [
+      "W3D/TableChair.png"
+    ],
+    technologies: ["Blender"],
+    liveUrl:"/model",
+    category: "w3d",
+    // featured: true,
   }
 ];
