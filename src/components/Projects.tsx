@@ -1,4 +1,4 @@
-import { Github, SquareArrowOutUpRight } from "lucide-react";
+import { Download, Github, SquareArrowOutUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PROJECTS } from "../config";
 import { cn } from "../lib/utils";
@@ -169,6 +169,17 @@ const Projects = () => {
                     >
                       <Github className="w-4 h-4" />
                       Code
+                    </a>
+                  )}
+                  {project.download && (
+                    <a
+                      href={project.download}
+                      download
+                      rel="noopener noreferrer"
+                      className={buttonVariants({ variant: "outline" })}
+                    >
+                      <Download className="w-4 h-4" />
+                      Download
                     </a>
                   )}
                 </div>

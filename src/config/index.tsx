@@ -17,6 +17,7 @@ interface ProjectProps {
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
+  download?: string;
   featured?: boolean;
   category: "web-dev" | "w3d";
 }
@@ -217,6 +218,7 @@ export const PROJECTS: ProjectProps[] = [
     ],
     technologies: ["Blender"],
     liveUrl:"/model/TableChair",
+    download: "/Download/TableChair.blend",
     category: "w3d",
     // featured: true,
   }
