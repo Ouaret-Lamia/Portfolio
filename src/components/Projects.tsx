@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { PROJECTS } from "../config";
 import { cn } from "../lib/utils";
 import { buttonVariants } from "./ui/button";
-import ModelViewer from "./ModelViewer";
 
 // Component for fade in/fade out carousel
 const ImageCarousel = ({ images }: { images: string[] }) => {
