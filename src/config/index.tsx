@@ -218,7 +218,7 @@ export const PROJECTS: ProjectProps[] = [
       "W3D/TableChair.png"
     ],
     technologies: ["Blender"],
-    liveUrl:"/model/TableChair",
+    // liveUrl:"/model/TableChair",
     download: "/Download/TableChair.blend",
     category: "w3d",
     // featured: true,
@@ -232,7 +232,7 @@ export const PROJECTS: ProjectProps[] = [
       "W3D/GlassScene.mp4"
     ],
     technologies: ["Blender"],
-    liveUrl:"/model/Scene",
+    // liveUrl:"/model/Scene",
     download: "/Download/Scene.blend",
     category: "w3d",
     video: true,
