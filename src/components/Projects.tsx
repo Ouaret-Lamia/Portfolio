@@ -111,19 +111,14 @@ const Projects = () => {
       <div className="w-full max-w-7xl px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project) => {
-            const isGlbFile = project.images[0]?.endsWith('.glb');
-            
             return (
             <div
               key={project.id}
               className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20"
             >
-              {isGlbFile && project.category === "w3d" ? (
+              {project.video ? (
                 <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-                  <ModelViewer 
-                    src={project.images[0]} 
-                    alt={project.title}
-                  />
+                  <video src={project.images[0]} autoPlay loop muted />
                 </div>
               ) : (
                 <ImageCarousel images={project.images} />

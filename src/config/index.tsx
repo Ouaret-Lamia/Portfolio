@@ -20,6 +20,7 @@ interface ProjectProps {
   download?: string;
   featured?: boolean;
   category: "web-dev" | "w3d";
+  video?: boolean;
 }
 
 // To do: add actual hrefs
@@ -220,6 +221,21 @@ export const PROJECTS: ProjectProps[] = [
     liveUrl:"/model/TableChair",
     download: "/Download/TableChair.blend",
     category: "w3d",
+    // featured: true,
+  },
+  {
+    id: 7,
+    title: "Glass animated 3D scene",
+    description:
+      "A 3D animated scene representing 3 ice cubes falling into a glass of lemonade",
+    images: [
+      "W3D/GlassScene.mp4"
+    ],
+    technologies: ["Blender"],
+    liveUrl:"/model/Scene",
+    download: "/Download/Scene.blend",
+    category: "w3d",
+    video: true,
     // featured: true,
   }
 ];
