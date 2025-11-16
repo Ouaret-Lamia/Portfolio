@@ -15,7 +15,6 @@ const ModelViewer = ({ src, alt = "3D Model", className = "" }: ModelViewerProps
     const container = viewerRef.current;
     if (!container) return;
 
-    // Clear old viewer if exists
     while (container.firstChild) container.removeChild(container.firstChild);
 
     const modelViewer = document.createElement("model-viewer");
@@ -28,7 +27,7 @@ const ModelViewer = ({ src, alt = "3D Model", className = "" }: ModelViewerProps
     modelViewer.setAttribute("shadow-intensity", "1");
     modelViewer.setAttribute("exposure", "0.8");
     modelViewer.setAttribute("shadow-softness", "0.5");
-    modelViewer.setAttribute("camera-orbit", "0deg 75deg 100%");
+    modelViewer.setAttribute("camera-orbit", "45deg 75deg 100%");
     modelViewer.setAttribute("field-of-view", "30deg");
     modelViewer.style.width = "100%";
     modelViewer.style.height = "100%";

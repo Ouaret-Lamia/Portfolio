@@ -173,7 +173,7 @@ const Projects = () => {
                       className={buttonVariants({ variant: "outline" })}
                     >
                       <Download className="w-4 h-4" />
-                      Download
+                      Report
                     </a>
                   )}
                 </div>
