@@ -233,7 +233,7 @@ export const PROJECTS: ProjectProps[] = [
     ],
     technologies: ["Blender"],
     liveUrl:"/model/Scene",
-    // download: "/Download/Scene.blend",
+    download: "/Download/GlassScene_Report.pdf",
     category: "w3d",
     video: true,
     // featured: true,
