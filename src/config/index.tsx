@@ -237,5 +237,18 @@ export const PROJECTS: ProjectProps[] = [
     category: "w3d",
     video: true,
     // featured: true,
-  }
+  },
+  {
+    id: 8,
+    title: "Dual Cube 3D scene",
+    description:
+      "A dual cube website with two independent scenes of rotating cubes",
+    images: [
+      "W3D/DualCubes.png"
+    ],
+    technologies: ["NextJS", "ThreeJS"],
+    liveUrl:"https://dual-cubes.netlify.app",
+    category: "w3d",
+    // featured: true,
+  },
 ];
